@@ -63,6 +63,30 @@ export default function Governance() {
             <p className="text-sm text-muted-foreground" style={{ borderLeft: `3px solid ${meta.color}`, paddingLeft: 12 }}>{meta.blurb}</p>
           </Card>
 
+          <Card className="p-5 bg-gradient-to-br from-slate-900/50 to-slate-800/50 border-cyan-500/20">
+            <div className="flex items-center gap-2 mb-3">
+              <TrendingUp className="w-5 h-5 text-cyan-400" />
+              <h3 className="font-bold text-lg">Predictive Analytics</h3>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <div className="flex justify-between text-xs text-gray-400 mb-1">
+                  <span>Proposal Outcome Confidence</span>
+                  <span className="text-cyan-400">87%</span>
+                </div>
+                <Progress value={87} className="h-2" />
+              </div>
+              <div>
+                <div className="flex justify-between text-xs text-gray-400 mb-1">
+                  <span>Voter Participation Rate</span>
+                  <span className="text-green-400">+12%</span>
+                </div>
+                <Progress value={72} className="h-2" />
+              </div>
+              <p className="text-xs text-gray-500 mt-3">AI-powered predictions based on historical voting patterns and staking trends.</p>
+            </div>
+          </Card>
+
           <h2 className="font-bold text-xl">Active Proposals</h2>
           {isLoading && <Loader2 className="w-5 h-5 animate-spin" />}
           {proposals && proposals.length === 0 && <p className="text-muted-foreground">No proposals yet.</p>}

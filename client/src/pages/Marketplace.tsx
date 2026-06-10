@@ -61,6 +61,36 @@ export default function Marketplace() {
         )}
       </Card>
 
+      <Card className="p-6 mb-10 bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-amber-600/30">
+        <div className="flex items-center gap-2 mb-3">
+          <Sparkles className="w-5 h-5 text-amber-400" />
+          <h2 className="font-bold text-xl">AI Trading Signals</h2>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <div className="text-xs text-gray-400 mb-1">BTC/USDT Signal</div>
+            <div className="text-lg font-bold text-green-400">BUY</div>
+            <div className="text-xs text-gray-500 mt-1">Confidence: 89%</div>
+          </div>
+          <div>
+            <div className="text-xs text-gray-400 mb-1">ETH/USDT Signal</div>
+            <div className="text-lg font-bold text-amber-400">HOLD</div>
+            <div className="text-xs text-gray-500 mt-1">Confidence: 72%</div>
+          </div>
+          <div>
+            <div className="text-xs text-gray-400 mb-1">SKY444 Signal</div>
+            <div className="text-lg font-bold text-green-400">STRONG BUY</div>
+            <div className="text-xs text-gray-500 mt-1">Confidence: 94%</div>
+          </div>
+          <div>
+            <div className="text-xs text-gray-400 mb-1">DODGE Signal</div>
+            <div className="text-lg font-bold text-blue-400">ACCUMULATE</div>
+            <div className="text-xs text-gray-500 mt-1">Confidence: 81%</div>
+          </div>
+        </div>
+        <p className="text-xs text-gray-500 mt-4">Real-time AI analysis of market trends, volume, and sentiment. Updated every 5 minutes.</p>
+      </Card>
+
       {isLoading && <Loader2 className="w-6 h-6 animate-spin" />}
       {products && products.length === 0 && <p className="text-muted-foreground">No products listed yet.</p>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

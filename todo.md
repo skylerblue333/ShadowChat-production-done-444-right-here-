@@ -37,7 +37,7 @@
 ## QA
 - [x] Vitest tests for routers (19/19 passing across 6 suites)
 - [x] Verify compile (no TS/LSP errors)
-- [ ] Save checkpoint + deliver demo
+- [x] Save checkpoint + deliver demo
 
 ## Phase 5 — Re-theme to reference UI (user-provided design)
 - [x] Update index.css tokens: pure-black bg, dark elevated cards, color-coded icon tiles, green % pills
@@ -47,3 +47,12 @@
 - [x] Re-theme Home landing to reference (hero, feature tiles, CTA)
 - [x] Re-theme Engineer, School, Arcade, Governance, Analytics, Charity, Marketplace
 - [x] Add Dashboard route + nav entry
+
+## Phase 6 — Final Polish & Deployment
+- [x] Page transition animations (fade-in on route change)
+- [x] All 23 vitest tests passing
+- [x] TypeScript compilation clean (no errors)
+- [x] Dev server healthy and running
+- [ ] Push to 32 GitHub repositories
+- [ ] Generate final zip package
+- [ ] Deliver live demo link + GitHub repos

@@ -29,6 +29,14 @@ function OnboardTrigger() {
   return null;
 }
 
+function PageTransition({ component: Component }: { component: React.ComponentType }) {
+  return (
+    <div className="animate-in fade-in duration-300">
+      <Component />
+    </div>
+  );
+}
+
 function Router() {
   return (
     <Switch>
