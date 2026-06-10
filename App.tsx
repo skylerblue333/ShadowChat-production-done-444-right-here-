@@ -29,6 +29,7 @@ import VideoAreaScreen from './src/screens/VideoAreaScreen';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('Home');
+  const [error, setError] = useState(null);
 
   const screens = {
     Home: HomeScreen,
@@ -59,7 +60,36 @@ export default function App() {
     Video: VideoAreaScreen,
   };
 
-  const CurrentScreen = screens[currentScreen] || HomeScreen;
+  const CurrentScreen = screens[currentScreen];
+  
+  if (!CurrentScreen) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.appTitle}>SKYCOIN4444</Text>
+          <Text style={styles.version}>All 70 Versions</Text>
+        </View>
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorTitle}>Screen Not Found</Text>
+          <Text style={styles.errorText}>The requested screen could not be loaded.</Text>
+          <TouchableOpacity style={styles.errorButton} onPress={() => setCurrentScreen('Home')}>
+            <Text style={styles.errorButtonText}>Return to Home</Text>
+          </TouchableOpacity>
+        </View>
+        <ScrollView horizontal style={styles.navBar}>
+          {Object.keys(screens).map((screen) => (
+            <TouchableOpacity
+              key={screen}
+              style={[styles.navButton, currentScreen === screen && styles.navButtonActive]}
+              onPress={() => setCurrentScreen(screen)}
+            >
+              <Text style={styles.navText}>{screen}</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -92,4 +122,9 @@ const styles = StyleSheet.create({
   navButton: { paddingHorizontal: 12, paddingVertical: 12, marginHorizontal: 4, borderRadius: 4 },
   navButtonActive: { backgroundColor: '#00d9ff' },
   navText: { color: '#ffffff', fontSize: 12, fontWeight: 'bold' },
+  errorContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
+  errorTitle: { fontSize: 20, fontWeight: 'bold', color: '#ff6b6b', marginBottom: 10 },
+  errorText: { fontSize: 14, color: '#ffffff', marginBottom: 20, textAlign: 'center' },
+  errorButton: { backgroundColor: '#00d9ff', paddingHorizontal: 20, paddingVertical: 10, borderRadius: 8 },
+  errorButtonText: { color: '#000000', fontWeight: 'bold' },
 });
