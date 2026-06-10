@@ -25,6 +25,8 @@ import SignUp from "./pages/SignUp";
 import AdminPanel from "./pages/AdminPanel";
 import NotificationsHub from "./pages/NotificationsHub";
 import CodeQualityDashboard from "./pages/CodeQualityDashboard";
+import Onboarding from "./pages/Onboarding";
+import Search from "./pages/Search";
 import { VoiceNavBar } from "./components/VoiceNavBar";
 
 // Fires the owner "new user signup" alert once after auth lands.
@@ -66,6 +68,8 @@ function Router() {
       <Route path="/admin" component={AdminPanel} />
       <Route path="/notifications" component={NotificationsHub} />
       <Route path="/code-quality" component={CodeQualityDashboard} />
+      <Route path="/onboarding" component={Onboarding} />
+      <Route path="/search" component={Search} />
       <Route path="*" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

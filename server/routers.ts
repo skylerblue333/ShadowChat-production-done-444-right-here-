@@ -28,6 +28,7 @@ import { seedRouter } from "./routers/seed";
 import { freeTierRouter } from "./routers/free-tier";
 import { notificationsRouter } from "./routers/notifications";
 import { codeQualityRouter } from "./routers/code-quality";
+import { advancedSearchRouter } from "./routers/advanced-search";
 
 export const appRouter = router({
   system: systemRouter,
@@ -73,9 +74,10 @@ export const appRouter = router({
   integrations: integrationsRouter,
   marketplaceAdv: marketplaceAdvancedRouter,
   uploads: uploadsRouter,
-  freeTier: freeTierRouter,
+  freetier: freeTierRouter,
   notifications: notificationsRouter,
   codeQuality: codeQualityRouter,
+  search: advancedSearchRouter,
   seed: seedRouter,
 });
 

@@ -102,10 +102,10 @@
 - [x] Voice Navigation: 13 commands verified working (Dashboard, HopeAI, School, Arcade, Trading, Video, Social, Shop, Charity, Governance, Analytics, Back, Logout)
 
 ## Phase 10 — 1-Hour Free Will Enhancements Sprint
-- [ ] Expand free tier: Unlock all premium features, remove paywalls, unlimited access
-- [ ] Add real-time notifications: Activity feeds, trading alerts, new followers, marketplace updates
-- [ ] Implement AI code quality scoring: Auto-evaluate, rank, and suggest improvements
-- [ ] Create user onboarding: Guided tours, tutorials, beginner paths
-- [ ] Add advanced search: Full-text search across all modules, filters, sorting
-- [ ] Push to main + all repos: After each feature, continuous deployment
+- [x] Expand free tier: Unlock all premium features, remove paywalls, unlimited access (free-tier router)
+- [x] Add real-time notifications: Activity feeds, trading alerts, new followers, marketplace updates (NotificationsHub page)
+- [x] Implement AI code quality scoring: Auto-evaluate, rank, and suggest improvements (CodeQualityDashboard page)
+- [x] Create user onboarding: Guided tours, tutorials, beginner paths (Onboarding.tsx, 8-step tour)
+- [x] Add advanced search: Full-text search across all modules, filters, sorting (advanced-search router)
+- [x] Push to main + all repos: After each feature, continuous deployment (git commits + ZIP)
 - [ ] Final checkpoint and live deployment

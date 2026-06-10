@@ -44,6 +44,12 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
             <Link
+              href="/onboarding"
+              className="sk-gradient px-7 py-3.5 rounded-full font-bold flex items-center gap-2 transition-transform active:scale-[0.97]"
+            >
+              Start Tour <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
               href="/dashboard"
               className="sk-gradient px-7 py-3.5 rounded-full font-bold flex items-center gap-2 transition-transform active:scale-[0.97]"
             >
