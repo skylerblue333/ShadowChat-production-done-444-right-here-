@@ -147,4 +147,4 @@
 - [x] Integrated WalletConnect into Crypto page
 - [x] WalletProvider added to main.tsx
 - [x] All TypeScript clean (0 errors)
-- [ ] Save checkpoint + push to live domain
+- [x] Save checkpoint + push to live domain (v ccbe4545)
