@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
-export default function Dashboard() {
+export default function AdminPanel() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Dashboard</Text>
+        <Text style={styles.title}>AdminPanel</Text>
       </View>
       <View style={styles.card}>
         <Text style={styles.text}>Content loading...</Text>

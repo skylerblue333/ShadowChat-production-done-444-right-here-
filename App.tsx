@@ -1,175 +1,95 @@
-import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as SplashScreen from 'expo-splash-screen';
-import * as SecureStore from 'expo-secure-store';
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-
-// Screens
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
+import AIEngineerScreen from './src/screens/AIEngineerScreen';
+import AnalyticsScreen from './src/screens/AnalyticsScreen';
+import ArcadeScreen from './src/screens/ArcadeScreen';
+import CharityScreen from './src/screens/CharityScreen';
+import CryptoScreen from './src/screens/CryptoScreen';
 import MarketplaceScreen from './src/screens/MarketplaceScreen';
 import TradingScreen from './src/screens/TradingScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import LoginScreen from './src/screens/LoginScreen';
-
-const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
-
-SplashScreen.preventAutoHideAsync();
-
-const HomeStack = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-      cardStyle: { backgroundColor: '#000000' },
-    }}
-  >
-    <Stack.Screen name="HomeTab" component={HomeScreen} />
-  </Stack.Navigator>
-);
-
-const DashboardStack = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-      cardStyle: { backgroundColor: '#000000' },
-    }}
-  >
-    <Stack.Screen name="DashboardTab" component={DashboardScreen} />
-  </Stack.Navigator>
-);
-
-const MarketplaceStack = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-      cardStyle: { backgroundColor: '#000000' },
-    }}
-  >
-    <Stack.Screen name="MarketplaceTab" component={MarketplaceScreen} />
-  </Stack.Navigator>
-);
-
-const TradingStack = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-      cardStyle: { backgroundColor: '#000000' },
-    }}
-  >
-    <Stack.Screen name="TradingTab" component={TradingScreen} />
-  </Stack.Navigator>
-);
-
-const ProfileStack = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-      cardStyle: { backgroundColor: '#000000' },
-    }}
-  >
-    <Stack.Screen name="ProfileTab" component={ProfileScreen} />
-  </Stack.Navigator>
-);
-
-const TabNavigator = () => (
-  <Tab.Navigator
-    screenOptions={{
-      headerShown: false,
-      tabBarStyle: {
-        backgroundColor: '#0a0a0a',
-        borderTopColor: '#00d9ff',
-        borderTopWidth: 1,
-      },
-      tabBarActiveTintColor: '#00d9ff',
-      tabBarInactiveTintColor: '#666666',
-    }}
-  >
-    <Tab.Screen
-      name="Home"
-      component={HomeStack}
-      options={{
-        tabBarLabel: 'Home',
-      }}
-    />
-    <Tab.Screen
-      name="Dashboard"
-      component={DashboardStack}
-      options={{
-        tabBarLabel: 'Dashboard',
-      }}
-    />
-    <Tab.Screen
-      name="Marketplace"
-      component={MarketplaceStack}
-      options={{
-        tabBarLabel: 'Market',
-      }}
-    />
-    <Tab.Screen
-      name="Trading"
-      component={TradingStack}
-      options={{
-        tabBarLabel: 'Trade',
-      }}
-    />
-    <Tab.Screen
-      name="Profile"
-      component={ProfileStack}
-      options={{
-        tabBarLabel: 'Profile',
-      }}
-    />
-  </Tab.Navigator>
-);
+import AdminPanelScreen from './src/screens/AdminPanelScreen';
+import CodeQualityDashboardScreen from './src/screens/CodeQualityDashboardScreen';
+import DayTradeRoomScreen from './src/screens/DayTradeRoomScreen';
+import DeveloperAreaScreen from './src/screens/DeveloperAreaScreen';
+import EngineerScreen from './src/screens/EngineerScreen';
+import EscrowShopScreen from './src/screens/EscrowShopScreen';
+import GovernanceScreen from './src/screens/GovernanceScreen';
+import LeaderboardsScreen from './src/screens/LeaderboardsScreen';
+import NotificationsHubScreen from './src/screens/NotificationsHubScreen';
+import OnboardingScreen from './src/screens/OnboardingScreen';
+import SchoolScreen from './src/screens/SchoolScreen';
+import SearchScreen from './src/screens/SearchScreen';
+import SignUpScreen from './src/screens/SignUpScreen';
+import SocialMediaScreen from './src/screens/SocialMediaScreen';
+import VideoAreaScreen from './src/screens/VideoAreaScreen';
 
 export default function App() {
-  const [isReady, setIsReady] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentScreen, setCurrentScreen] = useState('Home');
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const token = await SecureStore.getItemAsync('authToken');
-        setIsLoggedIn(!!token);
-      } catch (error) {
-        console.error('Auth check failed:', error);
-      } finally {
-        setIsReady(true);
-        await SplashScreen.hideAsync();
-      }
-    };
+  const screens = {
+    Home: HomeScreen,
+    Dashboard: DashboardScreen,
+    Engineer: AIEngineerScreen,
+    Analytics: AnalyticsScreen,
+    Arcade: ArcadeScreen,
+    Charity: CharityScreen,
+    Crypto: CryptoScreen,
+    Marketplace: MarketplaceScreen,
+    Trading: TradingScreen,
+    Profile: ProfileScreen,
+    Login: LoginScreen,
+    Admin: AdminPanelScreen,
+    Quality: CodeQualityDashboardScreen,
+    DayTrade: DayTradeRoomScreen,
+    Developer: DeveloperAreaScreen,
+    Code: EngineerScreen,
+    Escrow: EscrowShopScreen,
+    Governance: GovernanceScreen,
+    Leaderboards: LeaderboardsScreen,
+    Notifications: NotificationsHubScreen,
+    Onboarding: OnboardingScreen,
+    School: SchoolScreen,
+    Search: SearchScreen,
+    SignUp: SignUpScreen,
+    Social: SocialMediaScreen,
+    Video: VideoAreaScreen,
+  };
 
-    checkAuth();
-  }, []);
-
-  if (!isReady) {
-    return null;
-  }
+  const CurrentScreen = screens[currentScreen] || HomeScreen;
 
   return (
-    <View style={styles.container}>
-      <ExpoStatusBar barStyle="light-content" />
-      <NavigationContainer>
-        {isLoggedIn ? <TabNavigator /> : <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-            cardStyle: { backgroundColor: '#000000' },
-          }}
-        >
-          <Stack.Screen name="Login" component={LoginScreen} />
-        </Stack.Navigator>}
-      </NavigationContainer>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.appTitle}>SKYCOIN4444</Text>
+        <Text style={styles.version}>All 70 Versions</Text>
+      </View>
+      <CurrentScreen />
+      <ScrollView horizontal style={styles.navBar}>
+        {Object.keys(screens).map((screen) => (
+          <TouchableOpacity
+            key={screen}
+            style={[styles.navButton, currentScreen === screen && styles.navButtonActive]}
+            onPress={() => setCurrentScreen(screen)}
+          >
+            <Text style={styles.navText}>{screen}</Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000000',
-  },
+  container: { flex: 1, backgroundColor: '#000000' },
+  header: { padding: 16, backgroundColor: '#0a0a0a', borderBottomWidth: 1, borderBottomColor: '#00d9ff' },
+  appTitle: { fontSize: 24, fontWeight: 'bold', color: '#00d9ff' },
+  version: { fontSize: 12, color: '#666' },
+  navBar: { height: 50, backgroundColor: '#0a0a0a', borderTopWidth: 1, borderTopColor: '#00d9ff' },
+  navButton: { paddingHorizontal: 12, paddingVertical: 12, marginHorizontal: 4, borderRadius: 4 },
+  navButtonActive: { backgroundColor: '#00d9ff' },
+  navText: { color: '#ffffff', fontSize: 12, fontWeight: 'bold' },
 });
