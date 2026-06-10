@@ -692,3 +692,44 @@ export const nftTransactions = mysqlTable('nft_transactions', {
   createdAt: timestamp('created_at').defaultNow(),
 });
 
+
+// 1000 AI Agents System
+export const aiAgents = mysqlTable('ai_agents', {
+  id: bigint('id', { mode: 'bigint' }).primaryKey().autoincrement(),
+  name: varchar('name', { length: 255 }).notNull(),
+  type: varchar('type', { length: 100 }).notNull(), // 'coder', 'analyst', 'trader', 'teacher', 'support', 'moderator', 'creative', 'researcher', 'strategist', 'specialist'
+  specialization: varchar('specialization', { length: 255 }).notNull(),
+  description: text('description'),
+  capabilities: json('capabilities').$type<string[]>().default([]),
+  performanceScore: decimal('performance_score', { precision: 5, scale: 2 }).default('0'),
+  tasksCompleted: int('tasks_completed').default(0),
+  successRate: decimal('success_rate', { precision: 5, scale: 2 }).default('0'),
+  isActive: boolean('is_active').default(true),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').onUpdateNow(),
+});
+
+export const agentTasks = mysqlTable('agent_tasks', {
+  id: bigint('id', { mode: 'bigint' }).primaryKey().autoincrement(),
+  agentId: bigint('agent_id', { mode: 'bigint' }).notNull(),
+  userId: bigint('user_id', { mode: 'bigint' }).notNull(),
+  taskType: varchar('task_type', { length: 100 }).notNull(),
+  description: text('description').notNull(),
+  input: json('input'),
+  output: json('output'),
+  status: varchar('status', { length: 50 }).default('pending'), // 'pending', 'processing', 'completed', 'failed'
+  result: text('result'),
+  executionTime: int('execution_time'), // milliseconds
+  createdAt: timestamp('created_at').defaultNow(),
+  completedAt: timestamp('completed_at'),
+});
+
+export const agentAnalytics = mysqlTable('agent_analytics', {
+  id: bigint('id', { mode: 'bigint' }).primaryKey().autoincrement(),
+  agentId: bigint('agent_id', { mode: 'bigint' }).notNull(),
+  dailyTasks: int('daily_tasks').default(0),
+  dailySuccess: int('daily_success').default(0),
+  averageExecutionTime: decimal('average_execution_time', { precision: 10, scale: 2 }).default('0'),
+  totalEarnings: decimal('total_earnings', { precision: 18, scale: 8 }).default('0'),
+  date: date('date').notNull(),
+});
