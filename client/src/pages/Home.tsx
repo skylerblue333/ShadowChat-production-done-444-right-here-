@@ -67,9 +67,9 @@ export default function Home() {
           {/* LIVE STATS */}
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { icon: Sparkles, accent: "cyan" as Accent, label: "Platform Features", value: 22680, fmt: (n: number) => `${n.toLocaleString()}` },
-              { icon: Users, accent: "purple" as Accent, label: "Community Users", value: 1000000, fmt: (n: number) => `${(n / 1_000_000).toFixed(1)}M+` },
-              { icon: TrendingUp, accent: "green" as Accent, label: "Enterprise Grade", value: 22680, fmt: (n: number) => `Production Ready` },
+              { icon: Sparkles, accent: "cyan" as Accent, label: "Integrated Modules", value: 12, fmt: (n: number) => `${n}` },
+              { icon: Users, accent: "purple" as Accent, label: "Sign In", value: 0, fmt: (_n: number) => `Manus OAuth` },
+              { icon: TrendingUp, accent: "green" as Accent, label: "Status", value: 0, fmt: (_n: number) => `In Active Build` },
             ].map(s => (
               <Card key={s.label} className="p-6 text-left" hover>
                 <IconTile icon={s.icon} accent={s.accent} />
@@ -115,7 +115,7 @@ export default function Home() {
                   What You Built
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  22,680+ features across 70 versions. 6 GitHub repositories. 4 AI agents. 444+ voice commands. A complete enterprise platform that's production-ready and live today.
+                  A unified ecosystem bringing together learning, a crypto dashboard, a marketplace, governance, gaming, a social feed and more — built on a single sign-in. Actively in development, with new features added and tested over time.
                 </p>
               </Card>
 
@@ -125,7 +125,7 @@ export default function Home() {
                   The Impact
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  ROI potential: 1000x+. Rarity score: 9.9/10. This is the rarest startup codebase ever created. Production-ready enterprise platform.
+                  One identity across every module, a modern React + tRPC + database stack, and a design system shared across all pages. The goal is a genuinely useful all-in-one platform, shipped feature by feature.
                 </p>
               </Card>
             </div>
@@ -136,12 +136,12 @@ export default function Home() {
                 <h3 className="font-bold text-xl mb-6">Platform Achievements</h3>
                 <div className="space-y-4">
                   {[
-                    { icon: Lightning, label: "70 Versions", value: "v1-v70" },
-                    { icon: Gem, label: "Features", value: "22,680+" },
-                    { icon: Target, label: "Repos", value: "6 Synced" },
-                    { icon: Sparkles, label: "Voice Commands", value: "444+" },
-                    { icon: Zap, label: "AI Agents", value: "4 Active" },
-                    { icon: Crown, label: "Status", value: "Live & Ready" },
+                    { icon: Lightning, label: "Frontend", value: "React 19" },
+                    { icon: Gem, label: "API", value: "tRPC" },
+                    { icon: Target, label: "Auth", value: "Manus OAuth" },
+                    { icon: Sparkles, label: "Modules", value: "12" },
+                    { icon: Zap, label: "Database", value: "Connected" },
+                    { icon: Crown, label: "Status", value: "In Build" },
                   ].map(({ icon: Icon, label, value }) => (
                     <div key={label} className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -159,19 +159,19 @@ export default function Home() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 text-sm">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span>Platform: <strong>LIVE</strong></span>
+                    <span>Dev preview: <strong>RUNNING</strong></span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span>All 6 Repos: <strong>SYNCED</strong></span>
+                    <span>Sign-in: <strong>MANUS OAUTH</strong></span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span>AI Agents: <strong>ACTIVE</strong></span>
+                    <span>Database: <strong>CONNECTED</strong></span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span>Voice Commands: <strong>OPERATIONAL</strong></span>
+                    <span>Routing: <strong>NO BROKEN LINKS</strong></span>
                   </div>
                 </div>
               </Card>
