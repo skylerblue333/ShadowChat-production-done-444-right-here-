@@ -1,0 +1,47 @@
+{
+  "name": "skycoin4444-mobile",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "SKYCOIN4444 - Mobile App for iOS and Android",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build:ios": "eas build --platform ios",
+    "build:android": "eas build --platform android",
+    "submit:ios": "eas submit --platform ios",
+    "submit:android": "eas submit --platform android"
+  },
+  "keywords": ["skycoin", "crypto", "mobile", "app"],
+  "author": "SKYCOIN4444",
+  "license": "MIT",
+  "dependencies": {
+    "@react-navigation/bottom-tabs": "^7.17.2",
+    "@react-navigation/native": "^7.3.0",
+    "@react-navigation/stack": "^6.3.0",
+    "@react-native-async-storage/async-storage": "^1.21.0",
+    "expo": "^56.0.9",
+    "expo-cli": "^6.3.12",
+    "expo-constants": "^15.0.0",
+    "expo-local-authentication": "^56.0.4",
+    "expo-notifications": "^56.0.16",
+    "expo-secure-store": "^12.0.0",
+    "expo-splash-screen": "^0.26.0",
+    "expo-status-bar": "^1.10.0",
+    "react": "^19.2.7",
+    "react-native": "^0.86.0",
+    "react-native-web": "^0.21.2",
+    "react-native-screens": "^3.27.0",
+    "react-native-safe-area-context": "^4.7.0",
+    "react-native-gesture-handler": "^2.14.0",
+    "axios": "^1.6.0",
+    "zustand": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-native": "^0.73.0",
+    "typescript": "^5.3.0"
+  },
+  "private": true
+}
