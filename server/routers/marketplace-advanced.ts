@@ -1,7 +1,7 @@
 import { router, publicProcedure, protectedProcedure } from '../_core/trpc';
 import { z } from 'zod';
 import { invokeLLM } from '../_core/llm';
-import { db as database } from '../db';
+import { db } from '../db';
 import { codeListings, codeSales, codeReviews, performanceBenchmarks } from '../../drizzle/schema';
 import { eq, desc, and, gte, lte } from 'drizzle-orm';
 
