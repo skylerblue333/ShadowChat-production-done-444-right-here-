@@ -19,6 +19,7 @@ import { phase27SecurityRouter } from "./routers/phase27-security";
 import { phase28PerformanceRouter } from "./routers/phase28-performance";
 import { phase29UiRouter } from "./routers/phase29-ui";
 import { phase30GatewayRouter } from "./routers/phase30-gateway";
+import { phase32Router } from "./routers/phase32-v1-features";
 import { analyticsRouter } from "./routers/analytics";
 import { tradingRouter } from "./routers/trading";
 import { escrowRouter } from "./routers/escrow";
@@ -117,6 +118,7 @@ export const appRouter = router({
   phase28: phase28PerformanceRouter,
   phase29: phase29UiRouter,
   phase30: phase30GatewayRouter,
+  phase32: phase32Router,
 });
 
 export type AppRouter = typeof appRouter;
