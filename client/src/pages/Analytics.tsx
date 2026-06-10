@@ -83,12 +83,12 @@ export default function Analytics() {
       </div>
 
       <Card className="p-5 mt-6">
-        <h3 className="font-bold text-lg mb-4">Platform Scale</h3>
+        <h3 className="font-bold text-lg mb-4">Platform Scale <span className="text-xs font-normal text-muted-foreground">(live values, starts at zero)</span></h3>
         <ResponsiveContainer width="100%" height={220}>
           <BarChart data={[
-            { name: "Features", value: stats?.features ?? 3645 },
-            { name: "Users (K)", value: (stats?.users ?? 1200000) / 1000 },
-            { name: "Volume ($K)", value: (stats?.marketplaceVolume ?? 500000000) / 1000 },
+            { name: "Modules", value: stats?.features ?? 12 },
+            { name: "Users (K)", value: (stats?.users ?? 0) / 1000 },
+            { name: "Volume ($K)", value: (stats?.marketplaceVolume ?? 0) / 1000 },
           ]}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
             <XAxis dataKey="name" stroke="#7a7a7a" fontSize={12} />

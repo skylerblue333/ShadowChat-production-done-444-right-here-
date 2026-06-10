@@ -28,32 +28,32 @@ export default function DeveloperArea() {
                 <Card>
                   <CardContent className="pt-6">
                     <div className="text-center">
-                      <div className="text-3xl font-bold">22,680+</div>
-                      <div className="text-sm text-gray-500">Features</div>
+                      <div className="text-3xl font-bold">45+</div>
+                      <div className="text-sm text-gray-500">API Routers</div>
                     </div>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="text-center">
-                      <div className="text-3xl font-bold">70</div>
-                      <div className="text-sm text-gray-500">Versions</div>
+                      <div className="text-3xl font-bold">12</div>
+                      <div className="text-sm text-gray-500">Modules</div>
                     </div>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="text-center">
-                      <div className="text-3xl font-bold">4</div>
-                      <div className="text-sm text-gray-500">AI Agents</div>
+                      <div className="text-3xl font-bold">61</div>
+                      <div className="text-sm text-gray-500">Passing Tests</div>
                     </div>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="pt-6">
                     <div className="text-center">
-                      <div className="text-3xl font-bold">99.99%</div>
-                      <div className="text-sm text-gray-500">Uptime</div>
+                      <div className="text-3xl font-bold">tRPC</div>
+                      <div className="text-sm text-gray-500">Type-safe API</div>
                     </div>
                   </CardContent>
                 </Card>
