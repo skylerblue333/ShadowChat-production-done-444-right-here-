@@ -1,5 +1,8 @@
 import { Router, Route, Switch } from 'wouter';
+import { Suspense } from 'react';
 import { VoiceCommands } from './components/VoiceCommands';
+import GeneratedGallery from './pages/GeneratedGallery';
+import { generatedRoutes } from './pages/generated/registry';
 import { Navigation } from './components/Navigation';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
@@ -63,6 +66,14 @@ export default function App() {
       <Route path="/components" component={ComponentShowcase} />
       <Route path="/profile" component={Dashboard} />
       <Route path="/videos" component={VideoArea} />
+      <Route path="/gallery" component={GeneratedGallery} />
+      {generatedRoutes.map((r) => (
+        <Route key={r.slug} path={`/g/${r.slug}`}>
+          <Suspense fallback={<div className="container py-20 text-center text-muted-foreground">Loading…</div>}>
+            <r.component />
+          </Suspense>
+        </Route>
+      ))}
       <Route path="/:rest*" component={NotFound} />
       </Switch>
     </Router>
